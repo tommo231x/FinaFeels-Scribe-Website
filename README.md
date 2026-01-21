@@ -105,8 +105,13 @@ The app uses **React Router** (`react-router-dom`) configured in `App.jsx`.
 ## 🛠 Deployment & Build
 
 1. **Build Command**: `npm run build`
-2. **Output**: usage `dist/` folder.
-3. **Serving**: The `dist` folder is a standard static site. Can be hosted on Vercel, Netlify, or GitHub Pages.
+2. **Output**: `dist/` folder.
+3. **Deploy**: `firebase deploy`
+
+### Hosting
+- **Firebase Project:** `finasscribe`
+- **Live URL:** https://finasscribe.web.app
+- **Custom Domain:** https://finasscribe.com
 
 ### Important Notes for maintainers
 - **SEO**: Meta tags are primarily located in `index.html`.

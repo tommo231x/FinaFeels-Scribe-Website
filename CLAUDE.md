@@ -17,12 +17,29 @@ This is the official marketing and documentation website for **FinaFeels Scribe*
 
 ## Key Commands
 ```bash
-npm install    # Install dependencies
-npm run dev    # Start dev server at http://localhost:5173
-npm run build  # Build to dist/
-npm run lint   # Run ESLint
-npm run preview # Preview production build
+npm install       # Install dependencies
+npm run dev       # Start dev server at http://localhost:5173
+npm run build     # Build to dist/
+npm run lint      # Run ESLint
+npm run preview   # Preview production build
+firebase deploy   # Deploy to Firebase Hosting
 ```
+
+## Firebase Hosting
+- **Project ID:** `finasscribe`
+- **Live URL:** https://finasscribe.web.app
+- **Custom Domain:** https://finasscribe.com (pending DNS setup)
+- **Console:** https://console.firebase.google.com/project/finasscribe/hosting
+
+### Deploy Process
+```bash
+npm run build      # Build production bundle
+firebase deploy    # Deploy dist/ to Firebase
+```
+
+### Config Files
+- `.firebaserc` - Firebase project reference
+- `firebase.json` - Hosting config (SPA rewrites, cache headers)
 
 ## Project Structure
 ```
