@@ -1,0 +1,91 @@
+/* Legal Pages Styling (Privacy & Terms) */
+.legal-page {
+    padding: var(--spacing-24) 0;
+    min-height: 80vh;
+    background: transparent;
+    position: relative;
+}
+
+.legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-6);
+}
+
+.legal-header {
+    text-align: center;
+    margin-bottom: var(--spacing-16);
+}
+
+.legal-header h1 {
+    font-size: var(--font-size-4xl);
+    background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: var(--spacing-4);
+}
+
+.legal-last-updated {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    font-family: monospace;
+    opacity: 0.8;
+}
+
+.legal-content {
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-12);
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.legal-section {
+    margin-bottom: var(--spacing-12);
+}
+
+.legal-section:last-child {
+    margin-bottom: 0;
+}
+
+.legal-section h2 {
+    color: var(--color-text-main);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-4);
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: var(--spacing-2);
+}
+
+.legal-section p {
+    margin-bottom: var(--spacing-4);
+}
+
+.legal-section ul {
+    list-style-type: disc;
+    padding-left: var(--spacing-6);
+    margin-bottom: var(--spacing-4);
+}
+
+.legal-section li {
+    margin-bottom: var(--spacing-2);
+}
+
+.highlight-box {
+    background: rgba(56, 189, 248, 0.1);
+    border-left: 3px solid var(--color-primary);
+    padding: var(--spacing-4);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    margin: var(--spacing-6) 0;
+    color: var(--color-text-main);
+}
+
+.highlight-box h3 {
+    color: var(--color-primary);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-2);
+}

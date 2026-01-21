@@ -1,0 +1,161 @@
+.download-page {
+    padding: var(--spacing-16) 0;
+    min-height: 80vh;
+    position: relative;
+}
+
+.download-header {
+    text-align: center;
+    margin-bottom: var(--spacing-12);
+    position: relative;
+    z-index: 2;
+}
+
+.download-header h1 {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--spacing-2);
+}
+
+.download-subtitle {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-lg);
+}
+
+.download-card {
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-12);
+    max-width: 500px;
+    margin: 0 auto var(--spacing-12);
+    text-align: center;
+    box-shadow:
+        0 25px 50px -12px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+/* Celebration Glow */
+.download-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 60%);
+    z-index: -1;
+    animation: rotate-glow 10s linear infinite;
+}
+
+@keyframes rotate-glow {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.os-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    background-color: rgba(56, 189, 248, 0.15);
+    color: var(--color-primary);
+    padding: var(--spacing-1) var(--spacing-3);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    margin-bottom: var(--spacing-6);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.version-number {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-2);
+    color: var(--color-text-main);
+    letter-spacing: var(--tracking-tight);
+}
+
+.release-meta {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-8);
+}
+
+.btn-download-large {
+    width: 100%;
+    justify-content: center;
+    padding: var(--spacing-4);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-4);
+}
+
+.security-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-1);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+    margin-bottom: var(--spacing-6);
+}
+
+.download-links {
+    font-size: var(--font-size-sm);
+}
+
+.text-link {
+    color: var(--color-text-muted);
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.2);
+}
+
+.text-link:hover {
+    color: var(--color-primary);
+    text-decoration-color: var(--color-primary);
+}
+
+.separator {
+    margin: 0 var(--spacing-2);
+    color: var(--color-border);
+}
+
+.system-requirements {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.system-requirements h3 {
+    text-align: center;
+    margin-bottom: var(--spacing-6);
+    font-size: var(--font-size-lg);
+}
+
+.requirements-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-4);
+}
+
+.requirements-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    background: rgba(255, 255, 255, 0.02);
+    padding: var(--spacing-3);
+    border-radius: var(--radius-md);
+}
+
+.check-icon {
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
