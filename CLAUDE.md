@@ -29,17 +29,13 @@ firebase deploy   # Deploy to Firebase Hosting
 - **Project ID:** `finasscribe`
 - **Live URL:** https://finasscribe.web.app
 - **Custom Domain:** https://finasscribe.com
+- **www Redirect:** https://www.finasscribe.com → 301 → https://finasscribe.com
 - **Console:** https://console.firebase.google.com/project/finasscribe/hosting
 
-### Custom Domain & SSL Guidelines
-- Custom domain and SSL are fully managed by Firebase Hosting
-- DNS records for `finasscribe.com` are correctly configured
-- During SSL pending states, do NOT:
-  - Change DNS records
-  - Remove or re-add the domain in Firebase Console
-  - Click "Retry verification" unless explicitly instructed
-- SSL provisioning uses ACME and may take up to 24-48 hours after DNS propagation
-- Firebase will automatically retry certificate provisioning; manual intervention is rarely needed
+### Domain Configuration
+- `finasscribe.com` - Primary domain with SSL active
+- `www.finasscribe.com` - 301 redirects to non-www (canonical)
+- DNS: A record pointing to `199.36.158.100`, TXT record `hosting-site=finasscribe`
 
 ### Deploy Process
 ```bash
@@ -73,6 +69,8 @@ src/
 public/
   app_icon.ico      # Favicon
   social-card-v2.png # Open Graph image (1200x630)
+  robots.txt        # Search engine crawler rules
+  sitemap.xml       # XML sitemap for SEO
 ```
 
 ## Routes (defined in App.jsx)
@@ -138,8 +136,15 @@ When a new app version is released, update:
 2. **Changelog.jsx** - add new version entry to top of `versions` array
 3. Run `npm run build && firebase deploy`
 
+## SEO Configuration
+- **Title:** `Free Dictation Software for Windows | Offline Speech-to-Text - FinaFeels Scribe`
+- **Meta tags & JSON-LD:** in `index.html`
+- **robots.txt:** `public/robots.txt` - allows all crawlers
+- **sitemap.xml:** `public/sitemap.xml` - lists all pages
+- **Canonical URL:** `https://finasscribe.com/`
+- **`.sr-only` class:** Used for SEO-friendly hidden text in headings
+
 ## Important Notes
 - All internal links use `<Link>` from react-router-dom (no page refresh)
 - Social card referenced in index.html - increment version (v3, v4) to bust cache if updated
-- SEO meta tags and JSON-LD structured data are in `index.html`
 - Current stable version displayed: v1.0.4

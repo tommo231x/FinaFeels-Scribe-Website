@@ -71,6 +71,8 @@ Reusable classes defined in `src/index.css`:
 ├── public/                  # Static Assets served at root (/)
 │   ├── social-card-v2.png   # 1200x630 Open Graph image for social previews
 │   ├── app_icon.ico         # Favicon
+│   ├── robots.txt           # Search engine crawler rules
+│   ├── sitemap.xml          # XML sitemap for SEO
 │   └── vite.svg             # Default Vite logo (unused but present)
 ├── src/
 │   ├── components/          # Shared layout components
@@ -115,15 +117,20 @@ The app uses **React Router** (`react-router-dom`) configured in `App.jsx`.
 - **Custom Domain:** https://finasscribe.com
 
 ### Custom Domain Status
-- Firebase Hosting is active and serving the site
-- Custom domain `finasscribe.com` is fully configured with SSL active
-- Both `finasscribe.com` and `finasscribe.web.app` serve the site
+- `finasscribe.com` - Primary domain with SSL active
+- `www.finasscribe.com` - 301 redirects to non-www canonical
+- `finasscribe.web.app` - Firebase default subdomain
 
 ### Downloads
 - Installer downloads are hosted on GitHub Releases
 - **Releases Repo:** https://github.com/tommo231x/FinasScribe-Releases
 - Download page links directly to the latest release
 
+### SEO
+- **Meta tags & JSON-LD:** in `index.html`
+- **robots.txt:** allows all crawlers
+- **sitemap.xml:** lists all public pages
+- **Canonical:** `https://finasscribe.com/`
+
 ### Important Notes for maintainers
-- **SEO**: Meta tags and JSON-LD structured data are in `index.html`
 - **Performance**: The "Aurora" background uses fixed position pseudo-elements on the `body` tag (`body::before`, `body::after`) in `index.css`. These are GPU accelerated but monitor performance on low-end devices.
