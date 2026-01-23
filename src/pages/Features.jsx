@@ -14,7 +14,7 @@ const Features = () => {
         <div className="features-page">
             <div className="container">
                 <div className="features-header fade-in-up">
-                    <h1>Built for Flow</h1>
+                    <h1><span className="sr-only">Voice Dictation Features - </span>Built for Flow</h1>
                     <p>Everything you need to capture ideas, nothing to distract you.</p>
                 </div>
 

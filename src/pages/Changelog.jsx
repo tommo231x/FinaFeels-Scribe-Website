@@ -2,8 +2,26 @@
   COMPONENT: Changelog Page
   PURPOSE: Detailed version history.
   NAVIGATION: None.
-  DYNAMIC CONTENT: 
-    - List of versions fetched from API/Repo.
+
+  ============================================================
+  RELEASE UPDATE CHECKLIST:
+  When releasing a new version, add a new entry to the TOP of
+  the 'versions' array below:
+
+  {
+      version: "X.X.X",
+      date: "Mon DD, YYYY",
+      changes: [
+          "Change 1 description.",
+          "Change 2 description."
+      ]
+  },
+
+  Keep entries in descending order (newest first).
+  Source of truth: changelog.md in FinasScribe app repo.
+
+  Then run: npm run build && firebase deploy
+  ============================================================
 */
 import React from 'react';
 import './Changelog.css';

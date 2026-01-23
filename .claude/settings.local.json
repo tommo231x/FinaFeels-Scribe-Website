@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" repo create FinaFeels-Scribe-Website --public --source=. --remote=origin --push --description \"Marketing website for FinaFeels Scribe - a tray-based writing and dictation assistant\")",
+      "Bash(npm install)",
+      "Bash(npm run build:*)",
+      "Bash(firebase:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(nslookup:*)",
+      "Bash(powershell:*)",
+      "Bash(curl:*)"
+    ]
+  }
+}

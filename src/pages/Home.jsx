@@ -17,6 +17,7 @@ const Home = () => {
                 <div className="container hero-layout">
                     <div className="hero-content">
                         <h1 className="hero-title fade-in-up">
+                            <span className="sr-only">Free Dictation Software for Windows - </span>
                             Speak. Capture. <br />
                             <span className="text-gradient">Stay in Flow.</span>
                         </h1>

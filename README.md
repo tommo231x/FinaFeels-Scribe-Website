@@ -59,6 +59,7 @@ Reusable classes defined in `src/index.css`:
     - `.container`: Centers content with a max-width of 1200px.
     - `.text-gradient`: Applies the brand gradient to text.
     - `.fade-in-up`: Entry animation for hero elements.
+    - `.sr-only`: Screen-reader only text (visible to search engines, hidden visually).
 
 ---
 
@@ -113,6 +114,16 @@ The app uses **React Router** (`react-router-dom`) configured in `App.jsx`.
 - **Live URL:** https://finasscribe.web.app
 - **Custom Domain:** https://finasscribe.com
 
+### Custom Domain Status
+- Firebase Hosting is active and serving the site
+- Custom domain `finasscribe.com` is fully configured with SSL active
+- Both `finasscribe.com` and `finasscribe.web.app` serve the site
+
+### Downloads
+- Installer downloads are hosted on GitHub Releases
+- **Releases Repo:** https://github.com/tommo231x/FinasScribe-Releases
+- Download page links directly to the latest release
+
 ### Important Notes for maintainers
-- **SEO**: Meta tags are primarily located in `index.html`.
+- **SEO**: Meta tags and JSON-LD structured data are in `index.html`
 - **Performance**: The "Aurora" background uses fixed position pseudo-elements on the `body` tag (`body::before`, `body::after`) in `index.css`. These are GPU accelerated but monitor performance on low-end devices.

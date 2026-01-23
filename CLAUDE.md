@@ -28,8 +28,18 @@ firebase deploy   # Deploy to Firebase Hosting
 ## Firebase Hosting
 - **Project ID:** `finasscribe`
 - **Live URL:** https://finasscribe.web.app
-- **Custom Domain:** https://finasscribe.com (pending DNS setup)
+- **Custom Domain:** https://finasscribe.com
 - **Console:** https://console.firebase.google.com/project/finasscribe/hosting
+
+### Custom Domain & SSL Guidelines
+- Custom domain and SSL are fully managed by Firebase Hosting
+- DNS records for `finasscribe.com` are correctly configured
+- During SSL pending states, do NOT:
+  - Change DNS records
+  - Remove or re-add the domain in Firebase Console
+  - Click "Retry verification" unless explicitly instructed
+- SSL provisioning uses ACME and may take up to 24-48 hours after DNS propagation
+- Firebase will automatically retry certificate provisioning; manual intervention is rarely needed
 
 ### Deploy Process
 ```bash
@@ -100,6 +110,7 @@ public/
 - `.btn-secondary` - Glass border button
 - `.text-gradient` - Brand gradient text effect
 - `.fade-in-up` - Entry animation
+- `.sr-only` - Screen-reader only (SEO text hidden visually)
 
 ### Background Effects
 - Aurora glow effects via `body::before` and `body::after` pseudo-elements
@@ -116,8 +127,19 @@ Each page uses a header comment block:
 */
 ```
 
+## GitHub Releases
+- **Releases Repo:** https://github.com/tommo231x/FinasScribe-Releases
+- **Download URL format:** `https://github.com/tommo231x/FinasScribe-Releases/releases/download/vX.X.X/FinaFeelsScribe-X.X.X-Setup.exe`
+- Download page links directly to GitHub Releases for installer distribution
+
+## Release Update Checklist
+When a new app version is released, update:
+1. **Download.jsx** - version, date, file size, download URL (see comment block in file)
+2. **Changelog.jsx** - add new version entry to top of `versions` array
+3. Run `npm run build && firebase deploy`
+
 ## Important Notes
 - All internal links use `<Link>` from react-router-dom (no page refresh)
 - Social card referenced in index.html - increment version (v3, v4) to bust cache if updated
-- SEO meta tags are in `index.html`
+- SEO meta tags and JSON-LD structured data are in `index.html`
 - Current stable version displayed: v1.0.4

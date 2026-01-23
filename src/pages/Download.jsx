@@ -2,10 +2,22 @@
   COMPONENT: Download Page
   PURPOSE: Primary conversion point. Distributes the installer.
   NAVIGATION: Link to Changelog, Home.
-  DYNAMIC CONTENT: 
-    - Latest Version (e.g., v1.0.4)
-    - OS Detection (Highlight Windows)
-    - File Size
+
+  ============================================================
+  RELEASE UPDATE CHECKLIST:
+  When releasing a new version, update the following:
+
+  1. Version number (h2 element)          → "Version X.X.X"
+  2. Release date (release-meta span)     → "Released: Mon DD, YYYY"
+  3. File size (release-meta span)        → "XX MB"
+  4. Download URL (href on <a> button)    → Update vX.X.X in URL (2 places)
+  5. SHA-256 link (href on verification)  → Update vX.X.X in URL
+
+  GitHub Release URL format:
+  https://github.com/tommo231x/FinasScribe-Releases/releases/download/vX.X.X/FinaFeelsScribe-X.X.X-Setup.exe
+
+  Then run: npm run build && firebase deploy
+  ============================================================
 */
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -17,8 +29,8 @@ const Download = () => {
         <div className="download-page">
             <div className="container">
                 <header className="download-header">
-                    <h1>Get FinaFeels Scribe</h1>
-                    <p className="download-subtitle">The focused dictation utility for your desktop.</p>
+                    <h1><span className="sr-only">Download Free Dictation Software - </span>Get FinaFeels Scribe</h1>
+                    <p className="download-subtitle">Free speech-to-text dictation for Windows desktop.</p>
                 </header>
 
                 <div className="download-card">
@@ -34,10 +46,14 @@ const Download = () => {
                         <span>55 MB</span>
                     </div>
 
-                    <button className="btn btn-primary btn-download-large">
+                    <a
+                        href="https://github.com/tommo231x/FinasScribe-Releases/releases/download/v1.0.4/FinaFeelsScribe-1.0.4-Setup.exe"
+                        className="btn btn-primary btn-download-large"
+                        download
+                    >
                         <DownloadIcon size={24} />
                         <span>Download for Windows</span>
-                    </button>
+                    </a>
 
                     <div className="security-note">
                         <Shield size={14} /> Signed & Verified Safe
@@ -46,7 +62,7 @@ const Download = () => {
                     <div className="download-links">
                         <Link to="/changelog" className="text-link">View Release Notes</Link>
                         <span className="separator">•</span>
-                        <Link to="#" className="text-link">Verification (SHA-256)</Link>
+                        <a href="https://github.com/tommo231x/FinasScribe-Releases/releases/tag/v1.0.4" className="text-link" target="_blank" rel="noopener noreferrer">Verification (SHA-256)</a>
                     </div>
                 </div>
 
