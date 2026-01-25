@@ -3,10 +3,17 @@
   PURPOSE: Website terms and EULA reference.
 */
 import React from 'react';
+import SEO from '../components/SEO';
 import './Legal.css';
 
 const Terms = () => {
     return (
+        <>
+        <SEO
+            title="Terms of Service"
+            description="Terms of Service for FinaFeels Scribe website and software. Read our usage terms and End User License Agreement information."
+            path="/terms"
+        />
         <div className="legal-page">
             <div className="legal-container">
                 <header className="legal-header">
@@ -70,6 +77,7 @@ const Terms = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

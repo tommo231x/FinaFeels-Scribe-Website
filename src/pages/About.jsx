@@ -5,10 +5,17 @@
   DYNAMIC CONTENT: None.
 */
 import React from 'react';
+import SEO from '../components/SEO';
 import './About.css';
 
 const About = () => {
     return (
+        <>
+        <SEO
+            title="About Us - FinaFeels Scribe"
+            description="Meet the team behind FinaFeels Scribe. Built for flow state - a privacy-first dictation app that removes friction between thought and text."
+            path="/about"
+        />
         <div className="about-page">
             <div className="container">
                 {/* Ambient Background Elements */}
@@ -102,6 +109,7 @@ const About = () => {
 
             </div>
         </div>
+        </>
     );
 };
 

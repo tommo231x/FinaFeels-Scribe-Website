@@ -7,10 +7,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Download, Zap, Feather, Lock, Send, Mic, MoreHorizontal } from 'lucide-react';
+import SEO from '../components/SEO';
 import './Home.css';
 
 const Home = () => {
     return (
+        <>
+        <SEO
+            title="Free Dictation Software for Windows | Offline Speech-to-Text"
+            description="Free speech-to-text dictation software for Windows 10/11. Talk instead of typing with offline voice recognition. No subscription. Private, fast Dragon alternative."
+            path="/"
+        />
         <div className="home-page">
             {/* Hero Section */}
             <section className="hero-section">
@@ -122,6 +129,7 @@ const Home = () => {
                 </div>
             </section>
         </div>
+        </>
     );
 };
 

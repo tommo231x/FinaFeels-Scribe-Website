@@ -24,6 +24,7 @@
   ============================================================
 */
 import React from 'react';
+import SEO from '../components/SEO';
 import './Changelog.css';
 
 const versions = [
@@ -75,6 +76,12 @@ const versions = [
 
 const Changelog = () => {
     return (
+        <>
+        <SEO
+            title="Changelog - Version History & Release Notes"
+            description="FinaFeels Scribe version history and release notes. See what's new in each update - bug fixes, new features, and improvements."
+            path="/changelog"
+        />
         <div className="changelog-page">
             <div className="container">
                 <h1>Version History</h1>
@@ -98,6 +105,7 @@ const Changelog = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

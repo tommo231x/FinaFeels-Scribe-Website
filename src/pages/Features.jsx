@@ -7,10 +7,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Command, Mic, Sparkles, FolderLock, Share2, Keyboard, Zap, Layers, WifiOff } from 'lucide-react';
+import SEO from '../components/SEO';
 import './Features.css';
 
 const Features = () => {
     return (
+        <>
+        <SEO
+            title="Features - Voice Dictation & Speech Recognition"
+            description="Explore FinaFeels Scribe features: 6 AI presets, offline mode, global hotkey, auto-paste, Smart Mode with OpenAI/Gemini integration. Free voice typing for Windows."
+            path="/features"
+        />
         <div className="features-page">
             <div className="container">
                 <div className="features-header fade-in-up">
@@ -117,6 +124,7 @@ const Features = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

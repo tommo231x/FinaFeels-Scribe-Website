@@ -22,10 +22,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Download as DownloadIcon, Monitor, CheckCircle, Shield } from 'lucide-react';
+import { trackDownload } from '../firebase.js';
+import SEO from '../components/SEO';
 import './Download.css';
+
+// Current release info (update these when releasing new versions)
+const CURRENT_VERSION = '1.0.4';
+const DOWNLOAD_FILE_NAME = `FinaFeelsScribe-${CURRENT_VERSION}-Setup.exe`;
 
 const Download = () => {
     return (
+        <>
+        <SEO
+            title="Download Free Dictation Software for Windows"
+            description="Download FinaFeels Scribe free for Windows 10/11. Offline speech-to-text, voice typing, and AI-powered text refinement. No subscription required."
+            path="/download"
+        />
         <div className="download-page">
             <div className="container">
                 <header className="download-header">
@@ -50,6 +62,10 @@ const Download = () => {
                         href="https://github.com/tommo231x/FinasScribe-Releases/releases/download/v1.0.4/FinaFeelsScribe-1.0.4-Setup.exe"
                         className="btn btn-primary btn-download-large"
                         download
+                        onClick={() => trackDownload({
+                            fileName: DOWNLOAD_FILE_NAME,
+                            appVersion: CURRENT_VERSION
+                        })}
                     >
                         <DownloadIcon size={24} />
                         <span>Download for Windows</span>
@@ -77,6 +93,7 @@ const Download = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

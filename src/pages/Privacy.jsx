@@ -7,10 +7,17 @@
     - Local processing focus.
 */
 import React from 'react';
+import SEO from '../components/SEO';
 import './Legal.css';
 
 const Privacy = () => {
     return (
+        <>
+        <SEO
+            title="Privacy Policy"
+            description="FinaFeels Scribe privacy policy. Local-first architecture with zero data collection. Your voice recordings and transcripts stay on your device."
+            path="/privacy"
+        />
         <div className="legal-page">
             <div className="legal-container">
                 <header className="legal-header">
@@ -94,6 +101,7 @@ const Privacy = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

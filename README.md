@@ -2,7 +2,7 @@
 
 The official marketing and documentation website for **FinaFeels Scribe**, a tray-based writing and dictation assistant.
 
-Built with **React**, **Vite**, and **Vanilla CSS**.
+Built with **React**, **Vite**, **Firebase**, and **Vanilla CSS**.
 
 ## 🚀 Getting Started
 
@@ -77,10 +77,11 @@ Reusable classes defined in `src/index.css`:
 ├── src/
 │   ├── components/          # Shared layout components
 │   │   ├── Navbar.jsx       # Main navigation
-│   │   └── Footer.jsx       # Site footer
+│   │   ├── Footer.jsx       # Site footer
+│   │   └── SEO.jsx          # Per-page meta tags (react-helmet-async)
 │   ├── pages/               # Top-level Page Components
 │   │   ├── Home.jsx         # Landing page (Hero, Features grid)
-│   │   ├── Download.jsx     # Download CTA page
+│   │   ├── Download.jsx     # Download CTA page (tracks downloads)
 │   │   ├── Features.jsx     # Detailed feature breakdown
 │   │   ├── Help.jsx         # Support/Documentation hub
 │   │   ├── Changelog.jsx    # Version history
@@ -88,6 +89,7 @@ Reusable classes defined in `src/index.css`:
 │   │   └── Privacy.jsx      # Privacy Policy
 │   ├── App.jsx              # Main Router (react-router-dom) configuration
 │   ├── main.jsx             # React DOM entry point
+│   ├── firebase.js          # Firebase SDK init & analytics tracking
 │   └── index.css            # GLOBAL STYLES & VARIABLES
 └── dist/                    # Production output (created after build)
 ```
@@ -127,10 +129,19 @@ The app uses **React Router** (`react-router-dom`) configured in `App.jsx`.
 - Download page links directly to the latest release
 
 ### SEO
-- **Meta tags & JSON-LD:** in `index.html`
+- **Per-page meta tags:** Uses `react-helmet-async` via `src/components/SEO.jsx`
+- **Structured Data (JSON-LD):** SoftwareApplication + WebSite schemas in `index.html`, FAQPage schema in Help.jsx
+- **Search Console:** Verified on Google Search Console and Bing Webmaster Tools
 - **robots.txt:** allows all crawlers
-- **sitemap.xml:** lists all public pages
-- **Canonical:** `https://finasscribe.com/`
+- **sitemap.xml:** lists all 9 public pages with priorities
+- **Canonical URLs:** Per-page canonicals via SEO component
+
+### Analytics
+- **Firebase Analytics** with Measurement ID `G-JGLCDWG2MP`
+- **Page views:** Tracked automatically
+- **Download clicks:** Custom `download_click` event tracking file name, version, and platform
+- **Console:** https://console.firebase.google.com/project/finasscribe/analytics
+- **Config:** `src/firebase.js`
 
 ### Important Notes for maintainers
 - **Performance**: The "Aurora" background uses fixed position pseudo-elements on the `body` tag (`body::before`, `body::after`) in `index.css`. These are GPU accelerated but monitor performance on low-end devices.

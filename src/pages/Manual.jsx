@@ -2,10 +2,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Book, ArrowLeft } from 'lucide-react';
+import SEO from '../components/SEO';
 import './Help.css'; // Reusing Help styles for consistency
 
 const Manual = () => {
     return (
+        <>
+        <SEO
+            title="User Manual - How to Use Voice Dictation"
+            description="Complete user manual for FinaFeels Scribe. Learn how to use speech-to-text dictation, configure AI presets, and master voice typing on Windows."
+            path="/manual"
+        />
         <div className="help-page">
             <div className="container">
                 <div className="help-header">
@@ -33,6 +40,7 @@ const Manual = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

@@ -12,6 +12,7 @@ This is the official marketing and documentation website for **FinaFeels Scribe*
 - **React 19** with JSX
 - **Vite 7** for bundling and dev server
 - **React Router DOM 7** for client-side routing
+- **Firebase** for hosting and analytics
 - **Lucide React** for icons
 - **Vanilla CSS** (no CSS frameworks)
 
@@ -46,16 +47,40 @@ firebase deploy    # Deploy dist/ to Firebase
 ### Config Files
 - `.firebaserc` - Firebase project reference
 - `firebase.json` - Hosting config (SPA rewrites, cache headers)
+- `src/firebase.js` - Firebase SDK initialization and analytics
+
+## Firebase Analytics
+- **Measurement ID:** `G-JGLCDWG2MP`
+- **Console:** https://console.firebase.google.com/project/finasscribe/analytics
+
+### What's Tracked
+- **Page views** - Automatic via Firebase Analytics
+- **Download clicks** - Custom `download_click` event with parameters:
+  - `file_name` - e.g., `FinaFeelsScribe-1.0.4-Setup.exe`
+  - `app_version` - e.g., `1.0.4`
+  - `platform` - `windows`
+  - `page_path` - `/download`
+
+### Analytics Code
+- `src/firebase.js` - Firebase config and `trackDownload()` function
+- `src/main.jsx` - Imports firebase.js to initialize on app load
+- `src/pages/Download.jsx` - Calls `trackDownload()` on button click
+
+### Viewing Analytics
+- **Realtime:** Firebase Console > Analytics > Realtime (events appear within seconds)
+- **Events:** Firebase Console > Analytics > Events (full data within 24 hours)
 
 ## Project Structure
 ```
 src/
   App.jsx           # Router configuration
   main.jsx          # React entry point
+  firebase.js       # Firebase SDK init & analytics
   index.css         # GLOBAL STYLES & CSS VARIABLES (design system)
   components/
     Navbar.jsx      # Main navigation
     Footer.jsx      # Site footer
+    SEO.jsx         # Per-page meta tags (react-helmet-async)
   pages/
     Home.jsx        # Landing page (Hero, Features)
     Download.jsx    # Download CTA page
@@ -132,16 +157,45 @@ Each page uses a header comment block:
 
 ## Release Update Checklist
 When a new app version is released, update:
-1. **Download.jsx** - version, date, file size, download URL (see comment block in file)
+1. **Download.jsx**:
+   - `CURRENT_VERSION` constant (controls analytics tracking)
+   - Version in h2 element, release date, file size
+   - Download URL (2 places) and SHA-256 link
 2. **Changelog.jsx** - add new version entry to top of `versions` array
 3. Run `npm run build && firebase deploy`
 
 ## SEO Configuration
-- **Title:** `Free Dictation Software for Windows | Offline Speech-to-Text - FinaFeels Scribe`
-- **Meta tags & JSON-LD:** in `index.html`
+
+### Per-Page Meta Tags
+Uses `react-helmet-async` for dynamic, page-specific SEO:
+- **SEO Component:** `src/components/SEO.jsx` - reusable component for meta tags
+- **HelmetProvider:** Wrapped in `src/main.jsx`
+
+Each page imports and uses the SEO component:
+```jsx
+import SEO from '../components/SEO';
+
+// In component return:
+<SEO
+    title="Page Title"
+    description="Page description for search engines"
+    path="/page-path"
+    schema={optionalJsonLdSchema}  // For rich snippets
+/>
+```
+
+### Structured Data (JSON-LD)
+- **SoftwareApplication:** in `index.html` - app info for Google
+- **WebSite:** in `index.html` - enables sitelinks
+- **FAQPage:** in `Help.jsx` - enables FAQ rich snippets
+
+### Static SEO Files
 - **robots.txt:** `public/robots.txt` - allows all crawlers
-- **sitemap.xml:** `public/sitemap.xml` - lists all pages
-- **Canonical URL:** `https://finasscribe.com/`
+- **sitemap.xml:** `public/sitemap.xml` - lists all 9 pages with priorities
+- **Canonical URL:** `https://finasscribe.com/` (per-page canonicals via SEO component)
+
+### Performance
+- **Preconnect hints:** in `index.html` for Google Fonts and analytics
 - **`.sr-only` class:** Used for SEO-friendly hidden text in headings
 
 ## Important Notes

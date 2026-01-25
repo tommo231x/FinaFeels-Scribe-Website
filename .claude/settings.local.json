@@ -10,7 +10,15 @@
       "Bash(git push:*)",
       "Bash(nslookup:*)",
       "Bash(powershell:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(gcloud auth print-access-token:*)",
+      "Bash(node -e \"\nconst https = require\\(''https''\\);\nconst fs = require\\(''fs''\\);\nconst path = require\\(''path''\\);\n\n// Try to find Firebase credentials\nconst configDir = process.env.APPDATA || path.join\\(process.env.HOME, ''.config''\\);\nconst firebaseConfigPath = path.join\\(configDir, ''configstore'', ''firebase-tools.json''\\);\n\ntry {\n  const config = JSON.parse\\(fs.readFileSync\\(firebaseConfigPath, ''utf8''\\)\\);\n  console.log\\(''Firebase config found''\\);\n  console.log\\(''User:'', config.user?.email || ''unknown''\\);\n  console.log\\(''Has tokens:'', !!config.tokens\\);\n} catch \\(e\\) {\n  console.log\\(''Could not read Firebase config:'', e.message\\);\n}\n\")",
+      "Bash(node -e \"\nconst fs = require\\(''fs''\\);\nconst path = require\\(''path''\\);\nconst configDir = process.env.APPDATA || path.join\\(process.env.HOME, ''.config''\\);\nconst firebaseConfigPath = path.join\\(configDir, ''configstore'', ''firebase-tools.json''\\);\ntry {\n  const config = JSON.parse\\(fs.readFileSync\\(firebaseConfigPath, ''utf8''\\)\\);\n  console.log\\(''Firebase config found at:'', firebaseConfigPath\\);\n  console.log\\(''User:'', config.user ? config.user.email : ''unknown''\\);\n  console.log\\(''Has tokens:'', config.tokens ? ''yes'' : ''no''\\);\n} catch \\(e\\) {\n  console.log\\(''Could not read Firebase config:'', e.message\\);\n}\n\")",
+      "Bash(dir /s /b \"%APPDATA%\\\\*firebase*\")",
+      "Bash(node -e:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run lint)",
+      "Bash(dir:*)"
     ]
   }
 }

@@ -8,6 +8,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, BookOpen, MessageCircle, FileText, Mic, Activity, CheckCircle, ArrowRight } from 'lucide-react';
+import SEO from '../components/SEO';
 import './Help.css';
 
 const faqs = [
@@ -29,6 +30,20 @@ const faqs = [
     }
 ];
 
+// FAQ Schema for rich snippets in Google
+const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.a
+        }
+    }))
+};
+
 const Help = () => {
     const [search, setSearch] = useState('');
     const [activeGuide, setActiveGuide] = useState(null);
@@ -39,6 +54,13 @@ const Help = () => {
     );
 
     return (
+        <>
+        <SEO
+            title="Help Center - Dictation Software Support & FAQ"
+            description="Get help with FinaFeels Scribe. Learn how to start recording, setup AI, use offline mode, and configure Smart Mode. Frequently asked questions answered."
+            path="/help"
+            schema={faqSchema}
+        />
         <div className="help-page">
             <div className="container">
                 <div className="help-header">
@@ -190,6 +212,7 @@ const Help = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 
