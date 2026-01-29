@@ -17,7 +17,7 @@ const Terms = () => {
         <div className="legal-page">
             <div className="legal-container">
                 <header className="legal-header">
-                    <h1>Terms of Service</h1>
+                    <h1><span className="sr-only">FinaFeels Scribe - </span>Terms of Service</h1>
                     <span className="legal-last-updated">Last Updated: January 18, 2026</span>
                 </header>
 

@@ -41,7 +41,7 @@ const Download = () => {
         <div className="download-page">
             <div className="container">
                 <header className="download-header">
-                    <h1><span className="sr-only">Download Free Dictation Software - </span>Get FinaFeels Scribe</h1>
+                    <h1><span className="sr-only">Download Free Dictation Software for Windows - </span>Download FinaFeels Scribe</h1>
                     <p className="download-subtitle">Free speech-to-text dictation for Windows desktop.</p>
                 </header>
 

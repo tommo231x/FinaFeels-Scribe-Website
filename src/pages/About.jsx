@@ -26,7 +26,7 @@ const About = () => {
                 <div className="about-hero fade-in-up">
                     <div className="hero-pill">Our Mission</div>
                     <h1>
-                        Built for <span className="text-gradient">Flow State.</span>
+                        <span className="sr-only">About FinaFeels Scribe - </span>Built for <span className="text-gradient">Flow State.</span>
                     </h1>
                     <p className="lead">
                         FinaFeels Scribe removes the friction between thought and text.

@@ -19,7 +19,7 @@ const Manual = () => {
                     <Link to="/help" className="back-link">
                         <ArrowLeft size={16} /> Back to Help Center
                     </Link>
-                    <h1>User Manual</h1>
+                    <h1><span className="sr-only">FinaFeels Scribe Documentation - </span>User Manual</h1>
                     <p>Complete documentation for FinaFeels Scribe.</p>
                 </div>
 

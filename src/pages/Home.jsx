@@ -25,8 +25,8 @@ const Home = () => {
                     <div className="hero-content">
                         <h1 className="hero-title fade-in-up">
                             <span className="sr-only">Free Dictation Software for Windows - </span>
-                            Speak. Capture. <br />
-                            <span className="text-gradient">Stay in Flow.</span>
+                            Free Dictation Software <br />
+                            <span className="text-gradient">for Windows</span>
                         </h1>
                         <p className="hero-subtitle fade-in-up delay-100">
                             The seamless dictation bridge for your desktop. Press one key, speak naturally, and get polished text instantly. No typing, just flow.

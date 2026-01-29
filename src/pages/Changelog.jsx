@@ -84,7 +84,7 @@ const Changelog = () => {
         />
         <div className="changelog-page">
             <div className="container">
-                <h1>Version History</h1>
+                <h1><span className="sr-only">FinaFeels Scribe Updates - </span>Version History</h1>
                 <div className="timeline">
                     {versions.map((v, i) => (
                         <div key={i} className="timeline-item">

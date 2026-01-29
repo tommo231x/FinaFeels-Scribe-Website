@@ -64,7 +64,7 @@ const Help = () => {
         <div className="help-page">
             <div className="container">
                 <div className="help-header">
-                    <h1>Help Center</h1>
+                    <h1><span className="sr-only">Dictation Software Help - </span>Help Center</h1>
                     <div className="search-bar">
                         <Search className="search-icon" size={20} />
                         <input
