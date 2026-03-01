@@ -27,7 +27,7 @@ import SEO from '../components/SEO';
 import './Download.css';
 
 // Current release info (update these when releasing new versions)
-const CURRENT_VERSION = '1.0.4';
+const CURRENT_VERSION = '1.0.6.1';
 const DOWNLOAD_FILE_NAME = `FinaFeelsScribe-${CURRENT_VERSION}-Setup.exe`;
 
 const Download = () => {
@@ -35,7 +35,7 @@ const Download = () => {
         <>
         <SEO
             title="Download Free Dictation Software for Windows"
-            description="Download FinaFeels Scribe free for Windows 10/11. Offline speech-to-text, voice typing, and AI-powered text refinement. No subscription required."
+            description="Download FinaFeels Scribe free for Windows 10/11. Offline speech-to-text, voice commands for punctuation, custom AI presets, and audio playback. No subscription required."
             path="/download"
         />
         <div className="download-page">
@@ -49,9 +49,9 @@ const Download = () => {
                     <div className="os-badge">
                         <Monitor size={16} /> Windows 10 / 11
                     </div>
-                    <h2 className="version-number">Version 1.0.4</h2>
+                    <h2 className="version-number">Version 1.0.6.1</h2>
                     <div className="release-meta">
-                        <span>Released: Jan 19, 2026</span>
+                        <span>Released: Feb 15, 2026</span>
                         <span className="separator">•</span>
                         <span>64-bit Installer</span>
                         <span className="separator">•</span>
@@ -59,13 +59,23 @@ const Download = () => {
                     </div>
 
                     <a
-                        href="https://github.com/tommo231x/FinasScribe-Releases/releases/download/v1.0.4/FinaFeelsScribe-1.0.4-Setup.exe"
+                        href="https://github.com/tommo231x/FinasScribe-Releases/releases/download/v1.0.6.1/FinaFeelsScribe-1.0.6.1-Setup.exe"
                         className="btn btn-primary btn-download-large"
                         download
-                        onClick={() => trackDownload({
-                            fileName: DOWNLOAD_FILE_NAME,
-                            appVersion: CURRENT_VERSION
-                        })}
+                        onClick={() => {
+                            // Firebase Analytics
+                            trackDownload({
+                                fileName: DOWNLOAD_FILE_NAME,
+                                appVersion: CURRENT_VERSION
+                            });
+                            // Meta Pixel
+                            if (typeof fbq === 'function') {
+                                fbq('track', 'Lead', {
+                                    content_name: DOWNLOAD_FILE_NAME,
+                                    content_category: 'Software Download'
+                                });
+                            }
+                        }}
                     >
                         <DownloadIcon size={24} />
                         <span>Download for Windows</span>
@@ -78,7 +88,7 @@ const Download = () => {
                     <div className="download-links">
                         <Link to="/changelog" className="text-link">View Release Notes</Link>
                         <span className="separator">•</span>
-                        <a href="https://github.com/tommo231x/FinasScribe-Releases/releases/tag/v1.0.4" className="text-link" target="_blank" rel="noopener noreferrer">Verification (SHA-256)</a>
+                        <a href="https://github.com/tommo231x/FinasScribe-Releases/releases/tag/v1.0.6.1" className="text-link" target="_blank" rel="noopener noreferrer">Verification (SHA-256)</a>
                     </div>
                 </div>
 
