@@ -11,6 +11,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://www.googletagmanager.com" />
 
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '895994009925068');
+  fbq('track', 'PageView');
+  </script>
+  <!-- End Meta Pixel Code -->
+
   <!-- Search Engine Verification -->
   <meta name="google-site-verification" content="DNv0UsAGLOIp_AlyoL3C5bVVtQmixDNxSVvzv-0EmyE" />
   <meta name="msvalidate.01" content="3F370A3DD8EA4D8CE858F76A7949C087" />
@@ -18,7 +33,7 @@
   <!-- Primary SEO -->
   <title>Free Dictation Software for Windows | Offline Speech-to-Text - FinaFeels Scribe</title>
   <meta name="description" content="Free speech-to-text dictation software for Windows 10/11. Talk instead of typing with offline voice recognition. No subscription. Private, fast Dragon alternative." />
-  <meta name="keywords" content="free dictation software, speech to text, voice typing Windows, offline dictation, Dragon alternative, voice recognition free" />
+  <meta name="keywords" content="free dictation software, speech to text, voice typing Windows, offline dictation, Dragon alternative, voice recognition free, voice commands dictation, speak punctuation, custom presets, audio playback transcription" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://finasscribe.com/" />
 
@@ -51,10 +66,10 @@
       "priceCurrency": "USD"
     },
     "description": "Free dictation and speech-to-text software for Windows. Voice typing with offline support and AI-powered text refinement.",
-    "softwareVersion": "1.0.4",
+    "softwareVersion": "1.0.6.1",
     "downloadUrl": "https://finasscribe.com/download",
     "screenshot": "https://finasscribe.com/social-card-v2.png",
-    "featureList": "Speech to text, Voice dictation, Offline mode, AI text cleanup, Global hotkey, Multiple presets"
+    "featureList": "Speech to text, Voice dictation, Offline mode, AI text cleanup, Global hotkey, Multiple presets, Voice commands for punctuation, Audio playback, Custom AI presets"
   }
   </script>
 
@@ -80,6 +95,10 @@
 </head>
 
 <body>
+  <!-- Meta Pixel noscript fallback -->
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=895994009925068&ev=PageView&noscript=1"
+  /></noscript>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
